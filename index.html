@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Safe Trip: безопасные походы, вызов МЧС с геолокацией, баллы за бережное отношение к природе">
+  <title>Safe Trip</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Кнопка МЧС всегда закреплена вверху экрана -->
+  <div class="sos-bar">
+    <button class="sos-btn" type="button" data-action="sos">
+      <b>МЧС 112</b> Вызвать спасателей с моей геолокацией
+    </button>
+  </div>
+
+  <!-- Всё содержимое отрисовывается из script.js -->
+  <div id="app"></div>
+  <div id="sos-root"></div>
+
+  <!-- Контейнер для всплывающих уведомлений -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>Для работы сайта включите JavaScript.</noscript>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+/* ===== Цветовые токены: белый фон, чёрный текст, красные кнопки ===== */
+:root {
+  color-scheme: light;
+  --bg: #fff;
+  --card: #fff;
+  --tile: #f2f2f2;
+  --text: #000;
+  --muted: #3d3d3d;
+  --line: #cfcfcf;
+  --accent: #d32f2f;
+  --accent-dark: #8b0000;
+  --ink: #fff;
+  --soft: #fdeaea;
+  --good: #000;
+  --mid: #8b0000;
+  --bad: #d32f2f;
+}
+
+/* ===== Базовая раскладка и безопасные зоны экрана ===== */
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* ===== Сброс и основа страницы ===== */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* ===== Шапка ===== */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.brand.big {
+  font-size: 28px;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip {
+  background: var(--soft);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-weight: 700;
+}
+
+/* ===== Вкладки ===== */
+.tabs {
+  display: flex;
+  gap: 6px;
+  padding: 10px 16px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.tabs button {
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 8px 14px;
+  border-radius: 99px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tabs button.on {
+  background: var(--accent-dark);
+  color: var(--ink);
+  border-color: var(--accent-dark);
+}
+
+/* ===== Контейнеры и типографика ===== */
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+main.auth {
+  max-width: 420px;
+  padding-top: 40px;
+}
+
+h2 {
+  margin: 8px 0 12px;
+  font-size: 22px;
+}
+
+h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.sm {
+  font-size: 14px;
+}
+
+/* ===== Сетка и карточки ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.grid .card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.emoji {
+  font-size: 34px;
+}
+
+/* ===== Бейджи нагрузки ===== */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 99px;
+  border: 1px solid currentColor;
+  width: fit-content;
+}
+
+.b-low {
+  color: var(--good);
+}
+
+.b-mid {
+  color: var(--mid);
+}
+
+.b-high {
+  color: var(--bad);
+}
+
+/* ===== Кнопки ===== */
+.btn {
+  background: var(--accent);
+  color: var(--ink);
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.ghost {
+  background: var(--accent-dark);
+  color: var(--ink);
+  border: 0;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.ghost.sm {
+  padding: 5px 10px;
+}
+
+/* ===== Формы ===== */
+label {
+  display: block;
+  font-size: 14px;
+  margin: 10px 0 4px;
+  color: var(--text);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+}
+
+form .btn {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.seg {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.seg button {
+  flex: 1;
+  padding: 9px;
+  border: 1px solid var(--line);
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.seg button.on {
+  background: var(--soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ===== Личный кабинет ===== */
+.profile {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.stat {
+  background: var(--tile);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+
+.stat b {
+  display: block;
+  font-size: 24px;
+  color: var(--accent);
+}
+
+.bar {
+  height: 10px;
+  background: var(--tile);
+  border-radius: 99px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.hist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hist li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.hist li:last-child {
+  border: 0;
+}
+
+.plus {
+  color: var(--good);
+  font-weight: 700;
+}
+
+.minus {
+  color: var(--bad);
+  font-weight: 700;
+}
+
+/* ===== Купоны ===== */
+.coupon {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: var(--text);
+}
+
+.coupon svg {
+  flex: none;
+  background: #fff;
+  color: #111;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+code {
+  background: var(--tile);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* ===== Модальное окно ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 10;
+}
+
+.modal {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* ===== Уведомления ===== */
+#toast {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.toast {
+  background: #111;
+  color: var(--ink);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  max-width: 90%;
+}
+
+.toast.bad {
+  background: var(--bad);
+  color: #fff;
+}
+
+/* ===== Подвал ===== */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 0 16px 24px;
+}
+
+/* ===== Типографика: выделенный текст, жирный курсив для акцентов ===== */
+.muted {
+  font-weight: 500;
+}
+
+label,
+.btn,
+.ghost,
+.badge,
+.tabs button {
+  font-weight: 800;
+}
+
+b,
+h2,
+h3,
+.brand,
+.chip,
+.plus,
+.minus {
+  font-weight: 800;
+  font-style: italic;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+/* ===== Кнопка МЧС: всегда сверху, ярче остальных ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: #e10000;
+  z-index: 49;
+}
+
+.sos-bar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: #e10000;
+  border-bottom: 4px solid #000;
+}
+
+.sos-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  animation: sos-pulse 2s ease-in-out infinite;
+}
+
+.sos-btn b {
+  margin-right: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #fff;
+  color: #e10000;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+}
+
+.sos-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+
+@keyframes sos-pulse {
+  0%, 100% { background: #e10000; }
+  50% { background: #b00000; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sos-btn { animation: none; }
+}
+
+.sos-overlay {
+  z-index: 60;
+}
+
+.sos-call {
+  background: #e10000;
+  text-decoration: none;
+}
+
+.sos-error {
+  color: var(--bad);
+}
+
+.msg {
+  margin: 0 0 8px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--tile);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* ===== Камера и общие кнопки модальных окон ===== */
+.cam {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  background: #000;
+  object-fit: cover;
+}
+
+.cam[hidden] {
+  display: none;
+}
+
+.wide {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  text-align: center;
+}
